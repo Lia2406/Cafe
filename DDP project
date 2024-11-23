@@ -71,6 +71,26 @@ void WelcomingSection (){
 	printf("==================================================\n");
 }
 
+ //Modul untuk memilih login aplikasi sebagai siapa
+void PilihLogin(User *user) {
+    int pilihan;
+    printf("==================================================\n\n");
+    printf("What Are You Signed Up For? (type 1 for Customer, type 2 for Staff)\n");
+    scanf("%d", &pilihan);
+    
+    if (pilihan == 1) {
+        strcpy(user->role, "Customer");
+        printf("You Signed Up As A Customer.\n");
+    } else if (pilihan == 2) {
+        strcpy(user->role, "Staff");
+        printf("You Signed Up As A Staff.\n");
+    } else {
+        printf("Undetected Login. Please try again.\n");
+        PilihLogin(user); // Input not recognized, retry login
+    }
+    printf("==================================================\n\n");
+}
+
 //modul untuk menampilkan meja yang masih tersedia// 
 void TampilkanMeja();
 
@@ -79,7 +99,6 @@ void PilihMeja();
 
 
 //modul untuk menampilkan menu dan harga yang dapat di lihat oleh pelanggan pada saat akan melakukan pesanan//
-void PilihanMenu ();
 void TampilanMenu();
 
 //modul untuk memasukan pesanan pelanggan//
