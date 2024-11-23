@@ -1,3 +1,118 @@
-amalia
-diaz
-devi
+#include <stdio.h>
+#include <string.h>
+
+typedef struct {
+	int id;
+	char role [10];
+} User; //Untuk mengidentifikasi jenis login yang dibutuhkan user
+
+typedef struct {
+	char Nama [100];  
+    int NoItem; 
+    int JumlahItem; 
+    float Harga;
+} OrderItem; // untuk menyimpan detail setiap item yang di pesan 
+
+typedef struct {
+    int id;
+    int customerId;
+    int jumlahItem;
+    float totalHarga;
+    char status[];  // "diproses", "selesai", dll.
+} Order; // untuk menyimpan informasi pesanan pelanggan 
+
+
+typedef struct {
+	int NoMeja; 
+	char Status; 
+}; Meja; //untuk menyipan meja 
+
+typedef struct {
+    int tahun;
+    int bulan;
+    int hari;
+    int jam;
+    int menit;
+    int detik;
+} WaktuSaatIni; // unutk menyimpan tanggal pesanan 
+
+typedef struct {
+    int id;
+    char nama[100];
+    float harga;
+    int stok;
+} MenuItem; // untuk menyimpan detail menu
+
+
+typedef struct {
+    int id;
+    char nama[100];
+    char alamat[100];
+    char noTelepon[15];
+} Customer; //untuk menyimpan data pelanggan 
+
+int main (){
+}
+
+/*************************************/
+/* S P E S I F I K A S I   M O D U L */
+/**** U N T U K P E L A N G G A N  ***/
+/*************************************/
+
+
+//modul untuk menampilkan tampilan awal pada saat akan melakukan pesanan//
+void WelcomingSection (); 
+
+//modul untuk menampilkan meja yang masih tersedia// 
+void TampilkanMeja();
+
+//modul untuk melakukan pemilihan terhadap meja yang kosong// 
+void PilihMeja(); 
+
+
+//modul untuk menampilkan menu dan harga yang dapat di lihat oleh pelanggan pada saat akan melakukan pesanan//
+void PilihanMenu ();
+void TampilanMenu();
+
+//modul untuk memasukan pesanan pelanggan//
+void MasukanPesanan();
+
+//modul untuk menjumlahkan pesanan//
+int JumlahPesanan(); 
+
+//modul untuk menampilkan akhir pesanan pelanggan agar memastikan pesana benar atau tidak dan hasil akhirnya diketahui oleh staff//
+void KonfirmasiPesanan();
+
+//modul untuk melakukan konfirmasi menu sambil // 
+void PilihPembayaran();
+ 
+int Tunai; 
+int NonTunai; 
+
+//modul untuk menampilkan struk pembalian//
+void TampilStrukPembelian(); 
+
+//modul untuk mengetahui proses pesanan// 
+
+void StatusPesanan(); 
+
+
+/*************************************/
+/* S P E S I F I K A S I   M O D U L */
+/******** U N T U K S T A F F ********/
+/*************************************/
+
+//modul untuk memberikan pilihan, rekapan apa yang dibutuhkan//
+void rekapan; 
+
+//modul untuk menampilkan hasil rekapan harian 
+void RekapHarian;
+
+//modul untuk menampilkan hasil rekapan bulanan
+void RekapBulanan;
+
+//modul untuk menampilkan hasil rekapan tahunan
+void RekapTahunan;
+
+//modul untuk mencari menu ter laris 
+int MenuPopuler; 
