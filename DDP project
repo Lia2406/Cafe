@@ -1,16 +1,14 @@
-#include <stdio.h>
-#include <string.h>
+ #include <stdio.h>
+
+
 
 typedef struct {
-	int id;
-	char role [10];
-} User; //Untuk mengidentifikasi jenis login yang dibutuhkan user
-
-typedef struct {
+	
 	char Nama [100];  
     int NoItem; 
     int JumlahItem; 
     float Harga;
+    
 } OrderItem; // untuk menyimpan detail setiap item yang di pesan 
 
 typedef struct {
@@ -51,8 +49,7 @@ typedef struct {
     char noTelepon[15];
 } Customer; //untuk menyimpan data pelanggan 
 
-int main (){
-}
+
 
 /*************************************/
 /* S P E S I F I K A S I   M O D U L */
@@ -61,35 +58,7 @@ int main (){
 
 
 //modul untuk menampilkan tampilan awal pada saat akan melakukan pesanan//
-void WelcomingSection (){
-	printf("==================================================\n");
-	printf("            HOLA, WELCOME TO THE CAFE             \n");
-	printf("==================================================\n\n");
-	printf("What Are You Signed Up For?\n");
-	printf("1. Im A Customer!\n");
-	printf("2. Im A Staff!\n\n");
-	printf("==================================================\n");
-}
-
- //Modul untuk memilih login aplikasi sebagai siapa
-void PilihLogin(User *user) {
-    int pilihan;
-    printf("==================================================\n\n");
-    printf("What Are You Signed Up For? (type 1 for Customer, type 2 for Staff)\n");
-    scanf("%d", &pilihan);
-    
-    if (pilihan == 1) {
-        strcpy(user->role, "Customer");
-        printf("You Signed Up As A Customer.\n");
-    } else if (pilihan == 2) {
-        strcpy(user->role, "Staff");
-        printf("You Signed Up As A Staff.\n");
-    } else {
-        printf("Undetected Login. Please try again.\n");
-        PilihLogin(user); // Input not recognized, retry login
-    }
-    printf("==================================================\n\n");
-}
+void WelcomingSection (); 
 
 //modul untuk menampilkan meja yang masih tersedia// 
 void TampilkanMeja();
@@ -99,6 +68,7 @@ void PilihMeja();
 
 
 //modul untuk menampilkan menu dan harga yang dapat di lihat oleh pelanggan pada saat akan melakukan pesanan//
+void PilihanMenu ();
 void TampilanMenu();
 
 //modul untuk memasukan pesanan pelanggan//
@@ -143,3 +113,4 @@ void RekapTahunan;
 
 //modul untuk mencari menu ter laris 
 int MenuPopuler; 
+
