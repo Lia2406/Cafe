@@ -61,7 +61,15 @@ int main (){
 
 
 //modul untuk menampilkan tampilan awal pada saat akan melakukan pesanan//
-void WelcomingSection (); 
+void WelcomingSection (){
+	printf("==================================================\n");
+	printf("            HOLA, WELCOME TO THE CAFE             \n");
+	printf("==================================================\n\n");
+	printf("What Are You Signed Up For?\n");
+	printf("1. Im A Customer!\n");
+	printf("2. Im A Staff!\n\n");
+	printf("==================================================\n");
+}
 
 //modul untuk menampilkan meja yang masih tersedia// 
 void TampilkanMeja();
