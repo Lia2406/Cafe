@@ -4,7 +4,7 @@
 
 typedef struct {
 	
-	char Nama [100];  
+    char Nama [100];  
     int NoItem; 
     int JumlahItem; 
     float Harga;
