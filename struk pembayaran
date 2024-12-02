@@ -1,3 +1,9 @@
 //modul struk pembayaran
 typedef struct{
+int hours;
+int minutes;
+int seconds;
+int minutes_left;
+int seconds_left;
+}
 
