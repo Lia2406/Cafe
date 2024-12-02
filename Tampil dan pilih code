@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <string.h>
+
+#define MAX_MEJA 10 // Jumlah maksimum meja
+
+typedef struct {
+    int nomor;
+    int jumlah_kursi;
+    char status[10]; // "Kosong" atau "Terisi"
+} Meja;
+
+void tampilkanMeja(Meja meja[], int totalMeja) {
+    system("cls");
+    printf("\nDaftar Meja:\n");
+    printf("No. Meja\tJumlah Kursi\tStatus\n");
+    for(int i = 0; i < totalMeja; i++){
+        printf("%d\t\t%d\t\t%s\n", meja[i].nomor, meja[i].jumlah_kursi, meja[i].status);
+    }
+}
+
+void pickTable(Meja meja[], int totalMeja) {
+    int nomor;
+    printf("Masukkan Nomor Meja Yang Ingin Dipesan: ");
+    scanf("%d", &nomor);
+
+    // Cek apakah nomor meja valid dan kosong
+    if (nomor < 1 || nomor > totalMeja) {
+        printf("Nomor meja tidak valid! Pilih nomor meja antara 1 dan %d.\n", totalMeja);
+    } else if (strcmp(meja[nomor - 1].status, "Terisi") == 0) {
+        printf("Meja %d sudah terisi. Pilih meja yang lain.\n", nomor);
+    } else {
+        strcpy(meja[nomor - 1].status, "Terisi");  // Tandai meja sebagai terisi
+        printf("Meja %d telah dipesan!\n", nomor);
+    }
+}
