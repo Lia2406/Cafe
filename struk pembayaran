@@ -1,1 +1,3 @@
 //modul struk pembayaran
+typedef struct{
+
