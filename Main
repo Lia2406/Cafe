@@ -26,6 +26,7 @@ int main() {
                 tampilkanMeja(meja, MAX_MEJA);
                 break;
             case 2:
+                Pilihmeja(meja, MAX_MEJA);
                 break;
             case 3:
                 printf("Keluar dari program.\n");
