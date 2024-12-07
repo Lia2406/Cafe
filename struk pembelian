@@ -1,4 +1,43 @@
-//modul untuk struk pembelian
-tanggalPembelian();
-konfirmasi();
-pilihMeja();
+void cetakStruk(MenuItem Menu[], Order Pesanan[], int jumlahItem, int JumlahHargaItem, float TotalHarga, int nomor, const char *fileMenu, const char *fileMeja) {
+    char tanggal[20];
+    char status[10];
+    getTanggal(tanggal, sizeof(tanggal));
+    
+   if (getStatusMeja(fileMeja, nomor, status, sizeof(status)) != 0) {
+        printf("Gagal mendapatkan informasi meja.\n");
+        return;
+    }
+
+    FILE *fileStruk = fopen("struk.txt", "w");
+    if (fileStruk == NULL) {
+        printf("Gagal membuka file untuk mencetak struk.\n");
+        return;
+    }
+
+    fprintf(fileStruk, "======================== STRUK PEMBAYARAN ========================\n");
+    fprintf(fileStruk, "Tanggal: %s\n", tanggal);
+    fprintf(fileStruk, "Nomor Meja: %d\n", nomor);
+    fprintf(fileStruk, "-----------------------------------------------------------------\n");
+    fprintf(fileStruk, "No Item | Nama Item               | Jumlah | Harga   | Total\n");
+    fprintf(fileStruk, "-----------------------------------------------------------------\n");
+
+   float grand = 0
+    for (int i = 0; i < jumlahItem; i++) {
+        int indeks = cariItem(Menu, jumlahItem, Pesanan[i].NoItem);
+        if (indeks != -1) {
+            float hargaTotalItem = Menu[indeks].Harga * Pesanan[i].JumlahItem;
+            grandTotal += hargaTotalItem;
+
+            fprintf(fileStruk, "%-8d | %-24s | %-6d | Rp%-8.2f | Rp%-8.2f\n",
+                    Pesanan[i].NoItem, Menu[indeks].Nama, Pesanan[i].JumlahItem,
+                    Menu[indeks].Harga, hargaTotalItem);
+
+    fprintf(fileStruk, "-----------------------------------------------------------------\n");
+    fprintf(fileStruk, "Total Harga: Rp%.2f\n", TotalHarga);
+    fprintf(fileStruk, "-----------------------------------------------------------------\n");
+    fprintf(fileStruk, "                      TERIMA KASIH!                            \n");
+    fprintf(fileStruk, "=================================================================\n");
+
+    fclose(fileStruk);
+    printf("Struk telah dicetak ke file 'struk.txt'.\n");
+}
